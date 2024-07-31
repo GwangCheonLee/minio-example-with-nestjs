@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { getEnvPath } from './common/common.constant';
 import { validationSchemaConfig } from './common/config/validation.config.service';
+import { StorageModule } from './storagy/storage.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { validationSchemaConfig } from './common/config/validation.config.servic
       envFilePath: getEnvPath(),
       validationSchema: validationSchemaConfig(),
     }),
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
